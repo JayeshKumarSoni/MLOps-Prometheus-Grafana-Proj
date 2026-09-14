@@ -78,7 +78,7 @@ This repository demonstrates:
 ## **Configuring Prometheus to Scrape Flask Metrics**  
 1. **Retrieve Flask App Service IP:**  
    ```bash  
-   kubectl get svc  
+   kubectl get svc  10.105.188.21 - 5000:30380/TCP
    ```  
    Note the ClusterIP and port for `flask-metrics-app`.  
 2. **Edit Prometheus ConfigMap:**  
@@ -87,7 +87,7 @@ This repository demonstrates:
    scrape_configs:  
      - job_name: 'flask-app'  
        static_configs:  
-         - targets: ['<FLASK-APP-IP>:5000']  
+         - targets: ['10.105.188.21:5000']  
    ```  
 3. **Restart Prometheus:**  
    ```bash  
